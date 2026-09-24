@@ -1,90 +1,58 @@
 # WiSense
 
-## An Intelligent Wi-Fi Connectivity Recommendation System Using Unsupervised Learning
+## Intelligent Wi-Fi Analysis and Recommendation System
 
-WiSense is a web-based connectivity recommendation system that analyzes Wi-Fi observations and geographic information to identify suitable connectivity conditions and recommend nearby locations with better connectivity.
+WiSense is a connectivity analysis and recommendation system that evaluates available Wi-Fi observations and recommends the network that is most suitable for a user's intended activity.
 
-The project combines:
+Instead of relying on signal strength alone, WiSense considers multiple connectivity factors such as:
 
-- Unsupervised Machine Learning
-- Wi-Fi connectivity analysis
-- Geographic data
-- Distance-based recommendation
-- Web technologies
+- Signal strength (RSSI)
+- Signal stability
+- Download throughput
+- Network congestion
+- Usage conditions
+- Distance to the access point
+
+The system combines **unsupervised machine learning**, transparent connectivity scoring, and task-based recommendation to help users choose a suitable available network.
+
+> **Example:** A user selects **Gaming**, and WiSense evaluates the available networks and recommends the one with the strongest overall suitability for that activity.
+
+---
 
 ## Problem Statement
 
-Students on college campuses may have access to multiple Wi-Fi networks but still experience poor or unstable connectivity depending on their physical location.
+Users may have access to multiple Wi-Fi networks but experience different connectivity quality depending on signal conditions, congestion, throughput, and location.
 
-Signal strength alone does not always represent the actual quality of a connection. Factors such as network congestion, signal stability, throughput, access-point distance, and physical obstacles can affect connectivity.
+Signal strength alone does not always represent the overall quality of a connection. A network with a strong signal may still perform poorly when it is highly congested, while another network with a weaker signal may provide better throughput and stability.
 
-WiSense aims to analyze these observations and identify connectivity patterns using unsupervised learning. The system can then combine these patterns with geographic information to recommend a suitable nearby location.
+WiSense aims to analyze multiple connectivity observations, discover connectivity patterns using unsupervised learning, calculate a transparent suitability score, and recommend an appropriate network based on the user's intended activity.
 
-## Project Objectives
+---
 
-The main objectives of WiSense are:
+## How WiSense Works
 
-1. Analyze Wi-Fi connectivity observations.
-2. Identify connectivity patterns using K-Means clustering.
-3. Represent connectivity conditions geographically.
-4. Recommend suitable Wi-Fi networks or locations.
-5. Consider geographic distance when selecting a suitable location.
-6. Provide a simple web-based interface for users.
-7. Explore how machine learning can be integrated into a practical application.
+The current system follows this pipeline:
 
-## Planned Machine Learning Approach
-
-The core machine learning component uses **K-Means clustering**.
-
-Potential features include:
-
-- RSSI / signal strength
-- Signal stability
-- Download speed
-- Connected device count
-- Network usage
-- Frequency
-- Distance information where available
-
-The clustering model will be evaluated using techniques such as the **Elbow Method** and **Silhouette Score**.
-
-## Technology Stack
-
-### Backend
-- Python
-- FastAPI
-- Uvicorn
-
-### Machine Learning
-- pandas
-- NumPy
-- scikit-learn
-- Matplotlib
-- Seaborn
-
-### Frontend
-- React
-- Vite
-- Tailwind CSS
-
-### Geographic Features
-- Leaflet
-- OpenStreetMap
-- GPS/location data
-
-### Database
-- SQLite
-
-## Project Structure
-
-```text
-WiSense/
-├── backend/
-├── frontend/
-├── ml/
-├── data/
-├── docs/
-├── scripts/
-├── requirements.txt
-├── README.md
-└── LICENSE
+Wi-Fi Observations
+        |
+        v
+Data Validation & Preprocessing
+        |
+        v
+Feature Preparation
+       / \
+      /   \
+     v     v
+K-Means   Suitability
+Clustering  Score
+     |         |
+     v         v
+Cluster    Task-Based
+Interpretation Filtering
+       \       /
+        \     /
+         v   v
+     Network Ranking
+           |
+           v
+Recommendation + Reasons

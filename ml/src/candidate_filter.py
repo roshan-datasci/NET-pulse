@@ -1,6 +1,5 @@
-from suitability import calculate_suitability
-from task_requirements import is_suitable_for_task
-
+from ml.src.suitability import calculate_suitability
+from ml.src.task_requirements import is_suitable_for_task
 
 def filter_candidates(observations, task):
     """

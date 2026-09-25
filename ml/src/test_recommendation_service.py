@@ -1,4 +1,4 @@
-from recommendation_service import get_recommendation
+from ml.src.recommendation_service import get_recommendation
 
 
 observations = [

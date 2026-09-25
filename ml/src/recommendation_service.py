@@ -1,10 +1,9 @@
-from suitability import calculate_suitability
-from candidate_filter import filter_candidates
-from recommendation import recommend_network
-from recommendation_result import build_recommendation_result
-from recommendation_reasons import generate_recommendation_reasons
-from no_recommendation import build_no_recommendation_result
-
+from ml.src.suitability import calculate_suitability
+from ml.src.candidate_filter import filter_candidates
+from ml.src.recommendation import recommend_network
+from ml.src.recommendation_result import build_recommendation_result
+from ml.src.recommendation_reasons import generate_recommendation_reasons
+from ml.src.no_recommendation import build_no_recommendation_result
 
 def prepare_observations(observations):
     prepared = []
